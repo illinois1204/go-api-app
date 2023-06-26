@@ -6,6 +6,6 @@ import (
 
 func Routes(router *gin.Engine) {
 	routeMap := router.Group("/auth")
-	routeMap.GET("/register", register)
+	routeMap.POST("/register", register)
 	routeMap.GET("/login", login)
 }
