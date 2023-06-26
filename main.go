@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"go-api-app/app/auth"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -27,6 +28,7 @@ func main() {
 		}
 	}
 
+	gin.DefaultWriter = io.Discard
 	router := gin.Default()
 	auth.Routes(router)
 
