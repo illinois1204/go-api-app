@@ -1,4 +1,4 @@
-package dto
+package authDto
 
 type UserCreate struct {
 	Name     string `json:"name" validate:"omitempty"`

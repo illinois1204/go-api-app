@@ -7,18 +7,12 @@ import (
 )
 
 func register(ctx *gin.Context) {
-	body, _ := ctx.MustGet("body").(dto.UserCreate)
-
+	body, _ := ctx.MustGet("body").(authDto.UserCreate)
 	ctx.JSON(http.StatusOK, body)
-	return
-
-	ctx.JSON(http.StatusOK, gin.H{
-		"data": 123,
-		"info": gin.H{
-			"a": 0,
-			"b": true}})
 }
 
 func login(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, map[string]interface{}{"data": 101})
+	query, _ := ctx.MustGet("query").(authDto.Filter)
+	ctx.JSON(http.StatusOK, query)
+	// ctx.JSON(http.StatusOK, map[string]interface{}{"data": 101})
 }
